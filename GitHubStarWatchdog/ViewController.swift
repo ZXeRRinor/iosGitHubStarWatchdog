@@ -18,5 +18,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var repoNameField: UITextField!
     
+    @IBAction func onLoadButtonClick(_ sender: UIButton) {
+        print(userNameField?.text ?? "")
+        print(repoNameField?.text ?? "")
+    }
 }
 

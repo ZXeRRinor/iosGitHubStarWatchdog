@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		6C8D4B8825F0CA2B001F3AD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8D4B8625F0CA2B001F3AD6 /* LaunchScreen.storyboard */; };
 		6C8D4B9325F0CA2B001F3AD6 /* GitHubStarWatchdogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8D4B9225F0CA2B001F3AD6 /* GitHubStarWatchdogTests.swift */; };
 		6C8D4B9E25F0CA2B001F3AD6 /* GitHubStarWatchdogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8D4B9D25F0CA2B001F3AD6 /* GitHubStarWatchdogUITests.swift */; };
+		6C8D4C0025F12269001F3AD6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8D4BFF25F12269001F3AD6 /* Moya */; };
+		6C8D4C0625F126A8001F3AD6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8D4C0525F126A8001F3AD6 /* RealmSwift */; };
+		6C8D4C0C25F12A6C001F3AD6 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8D4C0B25F12A6C001F3AD6 /* Promises */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C8D4C0625F126A8001F3AD6 /* RealmSwift in Frameworks */,
+				6C8D4C0025F12269001F3AD6 /* Moya in Frameworks */,
+				6C8D4C0C25F12A6C001F3AD6 /* Promises in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +85,7 @@
 		6C8D4B6F25F0CA27001F3AD6 = {
 			isa = PBXGroup;
 			children = (
+				6C8D4C1025F12C50001F3AD6 /* Networking */,
 				6C8D4B7A25F0CA27001F3AD6 /* GitHubStarWatchdog */,
 				6C8D4B9125F0CA2B001F3AD6 /* GitHubStarWatchdogTests */,
 				6C8D4B9C25F0CA2B001F3AD6 /* GitHubStarWatchdogUITests */,
@@ -128,6 +135,13 @@
 			path = GitHubStarWatchdogUITests;
 			sourceTree = "<group>";
 		};
+		6C8D4C1025F12C50001F3AD6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +158,11 @@
 			dependencies = (
 			);
 			name = GitHubStarWatchdog;
+			packageProductDependencies = (
+				6C8D4BFF25F12269001F3AD6 /* Moya */,
+				6C8D4C0525F126A8001F3AD6 /* RealmSwift */,
+				6C8D4C0B25F12A6C001F3AD6 /* Promises */,
+			);
 			productName = GitHubStarWatchdog;
 			productReference = 6C8D4B7825F0CA27001F3AD6 /* GitHubStarWatchdog.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +234,11 @@
 				Base,
 			);
 			mainGroup = 6C8D4B6F25F0CA27001F3AD6;
+			packageReferences = (
+				6C8D4BFE25F12269001F3AD6 /* XCRemoteSwiftPackageReference "Moya" */,
+				6C8D4C0425F126A8001F3AD6 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				6C8D4C0A25F12A6C001F3AD6 /* XCRemoteSwiftPackageReference "promises" */,
+			);
 			productRefGroup = 6C8D4B7925F0CA27001F3AD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -438,7 +462,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubStarWatchdog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubStarWatchdog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,6 +613,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6C8D4BFE25F12269001F3AD6 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.1;
+			};
+		};
+		6C8D4C0425F126A8001F3AD6 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.0;
+			};
+		};
+		6C8D4C0A25F12A6C001F3AD6 /* XCRemoteSwiftPackageReference "promises" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/promises";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.12;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6C8D4BFF25F12269001F3AD6 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C8D4BFE25F12269001F3AD6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		6C8D4C0525F126A8001F3AD6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C8D4C0425F126A8001F3AD6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		6C8D4C0B25F12A6C001F3AD6 /* Promises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C8D4C0A25F12A6C001F3AD6 /* XCRemoteSwiftPackageReference "promises" */;
+			productName = Promises;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6C8D4B7025F0CA27001F3AD6 /* Project object */;
 }
