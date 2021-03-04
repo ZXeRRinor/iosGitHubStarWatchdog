@@ -14,6 +14,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet weak var userNameField: UITextField!
+    
+    @IBOutlet weak var repoNameField: UITextField!
+    
 }
 
