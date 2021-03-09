@@ -10,7 +10,7 @@ import Foundation
 struct Repository: Decodable {
     let id: Int
     let nodeID, name, fullName: String
-    let welcomePrivate: Bool
+    let isPrivate: Bool
     let owner: User
     let htmlURL: String
     let description: String?
@@ -53,13 +53,13 @@ struct Repository: Decodable {
     let tempCloneToken: String?
     let organization: User
     let networkCount, subscribersCount: Int?
-
-    enum CodingKeys: String, CodingKey {
+	
+    enum RepositoryCodingKeys: String, CodingKey {
         case id
         case nodeID = "node_id"
         case name
         case fullName = "full_name"
-        case welcomePrivate = "private"
+        case isPrivate = "private"
         case owner
         case htmlURL = "html_url"
         case description
@@ -129,4 +129,84 @@ struct Repository: Decodable {
         case networkCount = "network_count"
         case subscribersCount = "subscribers_count"
     }
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: RepositoryCodingKeys.self)
+//
+//        id = try container.decode(Int.self, forKey: .id)
+//        nodeID = try container.decode(String.self, forKey: .nodeID)
+//        name = try container.decode(String.self, forKey: .name)
+//        fullName = try container.decode(String.self, forKey: .fullName)
+//        isPrivate = try container.decode(Bool.self, forKey: .isPrivate)
+//        owner = try container.decode(User.self, forKey: .owner)
+//        htmlURL = try container.decode(String.self, forKey: .htmlURL)
+//        description =  try container.decode(String.self, forKey: .description)
+//        fork = try container.decode(String.self, forKey: .fork)
+//        url = try container.decode(String.self, forKey: .url)
+//        forksURL = try container.decode(String.self, forKey: .owner)
+//        keysURL = try container.decode(String.self, forKey: .keysURL)
+//        collaboratorsURL = try container.decode(String.self, forKey: .collaboratorsURL)
+//        teamsURL = try container.decode(String.self, forKey: .teamsURL)
+//        hooksURL = try container.decode(String.self, forKey: .hooksURL)
+//        issueEventsURL = try container.decode(String.self, forKey: .issueEventsURL)
+//        eventsURL = try container.decode(String.self, forKey: .eventsURL)
+//        assigneesURL = try container.decode(String.self, forKey: .assigneesURL)
+//        branchesURL = try container.decode(String.self, forKey: .branchesURL)
+//        tagsURL = try container.decode(String.self, forKey: .tagsURL)
+//        blobsURL = try container.decode(String.self, forKey: .blobsURL)
+//        gitTagsURL = try container.decode(String.self, forKey: .gitTagsURL)
+//        gitRefsURL = try container.decode(String.self, forKey: .gitRefsURL)
+//        treesURL = try container.decode(String.self, forKey: .treesURL)
+//        statusesURL = try container.decode(String.self, forKey: .statusesURL)
+//        languagesURL = try container.decode(String.self, forKey: .languagesURL)
+//        stargazersURL = try container.decode(String.self, forKey: .statusesURL)
+//        contributorsURL = try container.decode(String.self, forKey: .contributorsURL)
+//        subscribersURL = try container.decode(String.self, forKey: .)
+//        subscriptionURL =
+//        commitsURL =
+//        gitCommitsURL =
+//        commentsURL =
+//        issueCommentURL =
+//        contentsURL =
+//        compareURL =
+//        mergesURL =
+//        archiveURL =
+//        downloadsURL =
+//        issuesURL =
+//        pullsURL =
+//        milestonesURL =
+//        notificationsURL =
+//        labelsURL =
+//        releasesURL =
+//        deploymentsURL =
+//        createdAt =
+//        updatedAt =
+//        pushedAt =
+//        gitURL =
+//        sshURL =
+//        cloneURL =
+//        svnURL =
+//        homepage =
+//        size =
+//        stargazersCount =
+//        watchersCount =
+//        language =
+//        hasIssues =
+//        hasProjects =
+//        hasDownloads =
+//        hasWiki =
+//        hasPages =
+//        forksCount =
+//        mirrorURL =
+//        archived, disabled
+//        openIssuesCount =
+//        license, forks
+//        openIssues =
+//        watchers
+//        defaultBranch =
+//        tempCloneToken =
+//        organization
+//        networkCount =
+//        subscribersCount =
+//    }
 }
