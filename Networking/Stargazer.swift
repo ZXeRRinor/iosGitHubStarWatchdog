@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Stargazer {
-    let starredAt: String
+struct Stargazer: Decodable {
+    let starredAt: Date
     let user: User
-    enum StargazerCodingKeys: String, CodingKey {
-        case starredAt = "starred_at"
-        case user
-    }
+//    enum StargazerCodingKeys: String, CodingKey {
+//        case starredAt = "starred_at"
+//        case user
+//    }
 }
