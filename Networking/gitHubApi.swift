@@ -8,14 +8,14 @@
 import Foundation
 import Moya
 
-enum GitHubApiService {
+enum GitHubApi {
     case getStargazers(user: String, repo: String, page: String, perPage: String)
     case getRepositoryInfo(user: String, repo: String)
     case getRepositoriesOfUser(user: String, page: String, perPage: String)
-    case getUser(user: String)
+    case getUser(name: String)
 }
 
-extension GitHubApiService : TargetType {
+extension GitHubApi : TargetType {
     var baseURL: URL {
         URL(string: "https://api.github.com")!
     }
@@ -28,8 +28,8 @@ extension GitHubApiService : TargetType {
                 return "/repos/\(user)/\(repo)"
         case .getRepositoriesOfUser(let user, _, _):
                 return "/users/\(user)/repos"
-            case .getUser(let user):
-                return "/users/\(user)"
+            case .getUser(let name):
+                return "/users/\(name)"
         }
     }
     
