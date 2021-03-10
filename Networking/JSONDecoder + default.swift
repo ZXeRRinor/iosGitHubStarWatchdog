@@ -12,6 +12,7 @@ public extension JSONDecoder {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(.default)
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
         return decoder
     }
 }
