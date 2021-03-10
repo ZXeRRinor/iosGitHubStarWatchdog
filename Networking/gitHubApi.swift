@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum GitHubApi {
-    case getStargazers(user: String, repo: String, page: String, perPage: String)
+    case getStargazers(user: String, repo: String, page: Int, perPage: Int)
     case getRepositoryInfo(user: String, repo: String)
     case getRepositoriesOfUser(user: String, page: String, perPage: String)
     case getUser(name: String)
@@ -42,7 +42,12 @@ extension GitHubApi : TargetType {
     }
     
     var task: Task {
-        .requestPlain
+        switch self {
+        case .getStargazers(_, _, let page, let perPage):
+            return .requestParameters(parameters: [ "page": page, "per_page": perPage], encoding: URLEncoding.queryString)
+        default:
+            return .requestPlain
+        }
     }
     
     var headers: [String : String]? {
