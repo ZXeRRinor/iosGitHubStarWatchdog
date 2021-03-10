@@ -9,8 +9,8 @@ import Foundation
 
 struct Repository: Decodable {
     let id: Int
-    let nodeID, name, fullName: String
-    let isPrivate: Bool
+    let nodeId, name, fullName: String
+    let `private`: Bool
     let owner: User
     let htmlUrl: String
     let description: String?
