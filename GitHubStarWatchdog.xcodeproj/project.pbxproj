@@ -28,6 +28,8 @@
 		6C8D4C0025F12269001F3AD6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8D4BFF25F12269001F3AD6 /* Moya */; };
 		6C8D4C0625F126A8001F3AD6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8D4C0525F126A8001F3AD6 /* RealmSwift */; };
 		6C8D4C0C25F12A6C001F3AD6 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8D4C0B25F12A6C001F3AD6 /* Promises */; };
+		6C9EF4C625F8DC9500EBDA27 /* GitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9EF4C525F8DC9500EBDA27 /* GitHubApiService.swift */; };
+		6C9EF4CB25F8F28700EBDA27 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9EF4CA25F8F28700EBDA27 /* License.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		6C8D4B9925F0CA2B001F3AD6 /* GitHubStarWatchdogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubStarWatchdogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8D4B9D25F0CA2B001F3AD6 /* GitHubStarWatchdogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStarWatchdogUITests.swift; sourceTree = "<group>"; };
 		6C8D4B9F25F0CA2B001F3AD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C9EF4C525F8DC9500EBDA27 /* GitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiService.swift; sourceTree = "<group>"; };
+		6C9EF4CA25F8F28700EBDA27 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,8 @@
 				6C826A0F25F7A8B200D82E08 /* ServerError.swift */,
 				6C826A1425F7A98400D82E08 /* JSONDecoder + default.swift */,
 				6C826A1925F7A9D700D82E08 /* DateFormatter + extension.swift */,
+				6C9EF4C525F8DC9500EBDA27 /* GitHubApiService.swift */,
+				6C9EF4CA25F8F28700EBDA27 /* License.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			files = (
 				6C826A1525F7A98400D82E08 /* JSONDecoder + default.swift in Sources */,
 				6C8269FE25F7945A00D82E08 /* Repository.swift in Sources */,
+				6C9EF4CB25F8F28700EBDA27 /* License.swift in Sources */,
 				6C8D4B8025F0CA27001F3AD6 /* ViewController.swift in Sources */,
 				6C8D4B7C25F0CA27001F3AD6 /* AppDelegate.swift in Sources */,
 				6C8D4B7E25F0CA27001F3AD6 /* SceneDelegate.swift in Sources */,
@@ -321,6 +328,7 @@
 				6C826A1025F7A8B200D82E08 /* ServerError.swift in Sources */,
 				6C8269F425F78D5600D82E08 /* User.swift in Sources */,
 				6C826A1A25F7A9D700D82E08 /* DateFormatter + extension.swift in Sources */,
+				6C9EF4C625F8DC9500EBDA27 /* GitHubApiService.swift in Sources */,
 				6C826A1F25F7B89E00D82E08 /* Data+extensions.swift in Sources */,
 				6C826A0325F799C000D82E08 /* StargazerResults.swift in Sources */,
 				6C826A0825F7A7F100D82E08 /* MoyaProvider + request.swift in Sources */,

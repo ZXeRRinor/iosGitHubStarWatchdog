@@ -15,6 +15,7 @@ public extension MoyaProvider {
     func request<Resource: Decodable>(_ target: Target, decoder: JSONDecoder = .default) -> Promise<Resource> {
         requestData(target).then { data -> Resource in
             do {
+//                print(data.prettyPrintedJSON)
                 let resource = try decoder.decode(Resource.self, from: data)
                 return resource
             } catch {
