@@ -11,12 +11,16 @@ import Promises
 
 class ViewController: UIViewController {
     var stargazers: [Stargazer] = []
-    var stargazersNeeded: Int = 0
+    var stargazersNeeded: Int = 0 {
+        didSet {
+            print(ceil(Double(stargazersNeeded) / 100))
+        }
+    }
     var stargazersLoaded: Int = 0 {
         didSet {
-            print(stargazersNeeded != 0 && stargazersNeeded <= stargazersLoaded)
-            print(stargazersNeeded)
-            print(stargazersLoaded)
+//            print(stargazersNeeded != 0 && stargazersNeeded <= stargazersLoaded)
+//            print(stargazersNeeded)
+//            print(stargazersLoaded)
             if(stargazersNeeded != 0 && stargazersNeeded <= stargazersLoaded) {
                 stargazersNeeded = 0
                 stargazersLoaded = 0
@@ -30,7 +34,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBOutlet weak var userNameField: UITextField!
     
     @IBOutlet weak var repoNameField: UITextField!
@@ -38,8 +42,7 @@ class ViewController: UIViewController {
     @IBAction func onLoadButtonClick(_ sender: UIButton) {
         let service = GitHubApiService()
         if let repoName = repoNameField.text, let userName = userNameField.text {
-            let repo = service.getRepository(withName: repoName, by: userName)
-            repo.then { r in
+            service.getRepository(withName: repoName, by: userName).then { r in
                 self.stargazersNeeded = r.stargazersCount
                 let iterations = Int(ceil(Double(r.stargazersCount) / 100))
                 for i in 0..<iterations {
