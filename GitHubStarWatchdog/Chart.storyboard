@@ -16,6 +16,16 @@
                     <view key="view" contentMode="scaleToFill" id="QNS-Ou-QFr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEd-Od-nua">
+                                <rect key="frame" x="20" y="478" width="335" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="See stargazers for month..."/>
+                                <connections>
+                                    <action selector="tapChooseMenuItem:" destination="y36-Az-Fjx" eventType="touchUpInside" id="D3p-0H-Uyv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3zS-df-4XG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -23,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weP-x6-X75" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22" y="100"/>
+            <point key="canvasLocation" x="21.600000000000001" y="99.400299850074973"/>
         </scene>
     </scenes>
     <resources>

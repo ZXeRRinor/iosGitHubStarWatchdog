@@ -6,10 +6,34 @@
 //
 import UIKit
 import Charts
+import DropDown
 
 class ChartViewController: UIViewController, ChartViewDelegate {
     var chart = BarChartView()
     var stargazers: [Stargazer] = []
+    var formattedStargazers = [Int: [Stargazer]]()
+    let dropDown = DropDown()
+    
+    @IBAction func tapChooseMenuItem(_ sender: UIButton) {
+        dropDown.dataSource = formattedStargazers.keys.sorted().map {
+            let monthComponents = Calendar.current.monthSymbols
+            var result = monthComponents[Int($0 - 1) % 12]
+            let calendar = Calendar.current
+            if $0 <= 12 {
+                result += " (\(calendar.component(.year, from: Date()) - 1))"
+            } else {
+                result += " (\(calendar.component(.year, from: Date())))"
+            }
+            return result
+        }
+        dropDown.anchorView = sender
+        dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height)
+        dropDown.show()
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+          guard let _ = self else { return }
+          sender.setTitle(item, for: .normal)
+        }
+      }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +75,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             }
         }
         
-//        var testEntries = [BarChartDataEntry]()
-//        for i in 1...2 {
-//            testEntries.append(BarChartDataEntry(x: Double(i), y: Double(i * 10)))
-//        }
+        formattedStargazers = dataSet
         setChartEntries(result)
     }
     
