@@ -10,11 +10,10 @@ import UIKit
 class UserListViewController: UIViewController {
     var users: [User] = []
     
-    
 }
 
 extension UserListViewController {
-    func build(for users: [User]) -> UserListViewController {
+    static func build(for users: [User]) -> UserListViewController {
         let sb = UIStoryboard(name: "UserList", bundle: nil)
         let controller = sb.instantiateViewController(identifier: "UserListViewController") as! UserListViewController
         controller.users = users
