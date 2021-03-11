@@ -18,8 +18,9 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        barChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        barChart.center = view.center
+        let height = self.view.frame.size.height * 0.7
+        barChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: height)
+        barChart.center = CGPoint(x: view.center.x, y: height / 2)
         view.addSubview(barChart)
         customizeBarChart()
         let calendar = Calendar.current
@@ -86,6 +87,19 @@ extension ChartViewController {
         let controller = sb.instantiateViewController(identifier: "ChartViewController") as! ChartViewController
         controller.stargazers = stargazers
         return controller
+    }
+}
+
+extension ChartViewController {
+    public func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight)
+    {
+        print("chartValueSelected : x = \(highlight.x)")
+        print(entry)
+    }
+    
+    public func chartValueNothingSelected(_ chartView: ChartViewBase)
+    {
+        print("chartValueNothingSelected")
     }
 }
 
