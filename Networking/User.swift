@@ -9,7 +9,7 @@ import Foundation
 
 struct User: Decodable {
     let login: String
-//    let id: Int64
+    let id: Int64
 //    let nodeId: String
 //    let avatarUrl: String
 //    let gravatarId: String
