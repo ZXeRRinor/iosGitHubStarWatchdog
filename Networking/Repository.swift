@@ -8,12 +8,12 @@
 import Foundation
 
 struct Repository: Decodable {
-//    let id: Int
-//    let nodeId, name, fullName: String
+    let id: Int64
+    let name: String
     
 //    let `private`: Bool
     
-//    let owner: User
+    let owner: User
 //    let htmlUrl: String
     
 //    let description: String?
