@@ -15,7 +15,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     let dropDown = DropDown()
     
     @IBAction func tapChooseMenuItem(_ sender: UIButton) {
-        dropDown.dataSource = formattedStargazers.keys.sorted().map {
+        let stringList: [String] = formattedStargazers.keys.sorted().map {
             let monthComponents = Calendar.current.monthSymbols
             var result = monthComponents[Int($0 - 1) % 12]
             let calendar = Calendar.current
@@ -26,14 +26,17 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             }
             return result
         }
+        dropDown.dataSource = stringList
         dropDown.anchorView = sender
         dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height)
         dropDown.show()
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
-          guard let _ = self else { return }
-          sender.setTitle(item, for: .normal)
+            guard let _ = self else { return }
+            sender.setTitle(item, for: .normal)
+            self?.goToUserList(with: self!.formattedStargazers[stringList.firstIndex(of: item)!]!.map { $0.user })
         }
-      }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,11 +84,11 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     
     func setChartEntries(_ entries: [BarChartDataEntry]) {
         chart.setScaleEnabled(false)
-//        barChart.pinchZoomEnabled = false
+        //        barChart.pinchZoomEnabled = false
         
         let data = BarChartData(dataSet: BarChartDataSet(entries: entries, label: "data"))
         chart.data = data
-//        chart.invalidateIntrinsicContentSize()
+        //        chart.invalidateIntrinsicContentSize()
     }
     
     func customizeBarChart() {
@@ -94,10 +97,15 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         xAxis.drawGridLinesEnabled = false
         xAxis.granularity = 1
         xAxis.labelCount = 13
-//        xAxis.axisMinimum = start.toFloat() - 0.5
+        //        xAxis.axisMinimum = start.toFloat() - 0.5
         chart.fitBars = true
         chart.highlightFullBarEnabled = false
         xAxis.valueFormatter = CustomValueFormatter()
+    }
+    
+    func goToUserList(with list: [User]) {
+        let ulvc = UserListViewController.build(with: list)
+        show(ulvc, sender: nil)
     }
 }
 
